@@ -1,0 +1,55 @@
+
+platform :ios do
+
+  desc "Runs the iOS Extension compatible framework"
+  lane :test_extension do
+    
+    scan(
+      project: "Operations_ExtensionCompatible.xcodeproj",
+      scheme: "iOS Extensions Operations",
+      output_directory: ".ci/xcodebuild-data",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data"
+    )
+
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    
+    scan(
+      project: "Operations.xcodeproj",
+      scheme: "iOS Operations",
+      output_directory: ".ci/xcodebuild-data",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data"
+    )
+
+  end
+
+end
+
+platform :mac do
+
+  desc "Runs the OS X Extension compatible framework"
+  lane :test_extension do
+    
+    scan(
+      project: "Operations_ExtensionCompatible.xcodeproj",
+      scheme: "OS X Extensions Operations",
+      output_directory: ".ci/xcodebuild-data",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data"
+    )
+
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+
+    scan(
+      project: "Operations.xcodeproj",
+      scheme: "OS X Operations",
+      output_directory: ".ci/xcodebuild-data",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data"
+    )
+
+  end
+end

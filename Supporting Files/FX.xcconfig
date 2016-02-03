@@ -1,0 +1,14 @@
+//
+//  FX.xcconfig
+//  FX
+//
+//  Created by Daniel Thorpe on 03/02/2016.
+//
+//
+
+FX_VERSION = 0.1
+
+APPLICATION_EXTENSION_API_ONLY = YES
+INFOPLIST_FILE = $(SRCROOT)/Supporting Files/Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = me.danthorpe.Money.FX
+PRODUCT_NAME = FX
