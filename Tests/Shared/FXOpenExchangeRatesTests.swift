@@ -10,7 +10,8 @@ import XCTest
 import Result
 import DVR
 import SwiftyJSON
-@testable import Money
+import Money
+@testable import MoneyFX
 
 struct MyOpenExchangeRatesAppID: OpenExchangeRatesAppID {
     static let app_id = "this_is_not_the_app_id_youre_looking_for"

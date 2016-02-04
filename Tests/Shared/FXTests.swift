@@ -10,7 +10,8 @@ import XCTest
 import Result
 import SwiftyJSON
 import DVR
-@testable import Money
+import Money
+@testable import MoneyFX
 
 class Sessions {
 
@@ -29,6 +30,18 @@ class Sessions {
             return _session
         }
         return session
+    }
+}
+
+func createGarbageData() -> NSData {
+    return MoneyTestHelper.createGarbageData()
+}
+
+class MoneyTestHelper {
+    static func createGarbageData() -> NSData {
+        let path = NSBundle(forClass: MoneyTestHelper.self).pathForResource("Troll", ofType: "png")
+        let data = NSData(contentsOfFile: path!)
+        return data!
     }
 }
 
@@ -81,7 +94,6 @@ class FaultyFXRemoteProvider<Provider: FXRemoteProviderType>: FXRemoteProviderTy
         return Provider.quoteFromNetworkResult(result)
     }
 }
-
 
 class FakeLocalFX<B: MoneyType, C: MoneyType where
     B.Coder: NSCoding,

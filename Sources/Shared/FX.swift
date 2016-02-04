@@ -29,6 +29,7 @@ import Foundation
 import ValueCoding
 import Result
 import SwiftyJSON
+import Money
 
 /**
  # MoneyPairType

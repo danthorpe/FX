@@ -7,12 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65F6F8A41C62B84500155987 /* FX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8991C62B84500155987 /* FX.framework */; };
-		65F6F8CD1C62B89D00155987 /* FX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8C31C62B89D00155987 /* FX.framework */; };
-		65F6F8E91C62B8DA00155987 /* FX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8DF1C62B8DA00155987 /* FX.framework */; };
+		65BE50C41C6413420025D7E8 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */; };
+		65BE50C71C6413620025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C51C6413620025D7E8 /* Result.framework */; };
+		65BE50C81C6413620025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C61C6413620025D7E8 /* SwiftyJSON.framework */; };
+		65BE50CB1C6413780025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C91C6413780025D7E8 /* Result.framework */; };
+		65BE50CC1C6413780025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CA1C6413780025D7E8 /* SwiftyJSON.framework */; };
+		65BE50CF1C6413840025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CD1C6413840025D7E8 /* Result.framework */; };
+		65BE50D01C6413840025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CE1C6413840025D7E8 /* SwiftyJSON.framework */; };
+		65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */; };
+		65BE50D41C6413A20025D7E8 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50D31C6413A20025D7E8 /* DVR.framework */; };
+		65C6D34F1C640A6A0090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34D1C640A6A0090F6B3 /* Money.framework */; };
+		65C6D3501C640A6A0090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */; };
+		65C6D3531C640A870090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3511C640A870090F6B3 /* Money.framework */; };
+		65C6D3541C640A870090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3521C640A870090F6B3 /* ValueCoding.framework */; };
+		65C6D3571C640A940090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3551C640A940090F6B3 /* Money.framework */; };
+		65C6D3581C640A940090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3561C640A940090F6B3 /* ValueCoding.framework */; };
+		65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3591C640AA00090F6B3 /* Money.framework */; };
+		65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */; };
+		65C6D3731C640B400090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
+		65C6D3741C640B400090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
+		65C6D3751C640B400090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
+		65C6D3761C640B400090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
+		65C6D3771C640B400090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
+		65C6D3781C640B420090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
+		65C6D3791C640B420090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
+		65C6D37A1C640B420090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
+		65C6D37B1C640B420090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
+		65C6D37C1C640B420090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
+		65C6D37D1C640B430090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
+		65C6D37E1C640B430090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
+		65C6D37F1C640B430090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
+		65C6D3801C640B430090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
+		65C6D3811C640B430090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
+		65C6D3821C640B490090F6B3 /* CEX.IO BTCUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */; };
+		65C6D3831C640B490090F6B3 /* CEX.IO USDBTC.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */; };
+		65C6D3841C640B490090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */; };
+		65C6D3851C640B490090F6B3 /* Yahoo GBPUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */; };
+		65C6D3861C640B4A0090F6B3 /* CEX.IO BTCUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */; };
+		65C6D3871C640B4A0090F6B3 /* CEX.IO USDBTC.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */; };
+		65C6D3881C640B4A0090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */; };
+		65C6D3891C640B4A0090F6B3 /* Yahoo GBPUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */; };
+		65C6D38A1C640B4A0090F6B3 /* CEX.IO BTCUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */; };
+		65C6D38B1C640B4A0090F6B3 /* CEX.IO USDBTC.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */; };
+		65C6D38C1C640B4A0090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */; };
+		65C6D38D1C640B4A0090F6B3 /* Yahoo GBPUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */; };
+		65C6D3A71C640BA40090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
+		65C6D3A81C640BA40090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
+		65C6D3A91C640BA40090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
+		65C6D3AA1C640BA40090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
+		65C6D3AB1C640BAE0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
+		65C6D3AC1C640BAE0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
+		65C6D3AD1C640BAE0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
+		65C6D3AE1C640BAE0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
+		65C6D3AF1C640BAF0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
+		65C6D3B01C640BAF0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
+		65C6D3B11C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
+		65C6D3B21C640BAF0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
+		65C6D3B31C640BAF0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
+		65C6D3B41C640BAF0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
+		65C6D3B51C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
+		65C6D3B61C640BAF0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
+		65C6D3BB1C640D910090F6B3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3B91C640D910090F6B3 /* Result.framework */; };
+		65C6D3BC1C640D910090F6B3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */; };
+		65C6D3BE1C640DA90090F6B3 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BD1C640DA90090F6B3 /* DVR.framework */; };
+		65F6F8A41C62B84500155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8991C62B84500155987 /* MoneyFX.framework */; };
+		65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8C31C62B89D00155987 /* MoneyFX.framework */; };
+		65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */; };
 		65F6F8FC1C62B99300155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65F6F8FD1C62B99300155987 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F8F91C62B99300155987 /* Info.plist */; };
-		65F6F8FE1C62B99300155987 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F8FB1C62B99300155987 /* Info.plist */; };
 		65F6F8FF1C62B9F600155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F6F9001C62B9F800155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F6F9011C62B9F900155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,13 +104,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65BE50C51C6413620025D7E8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
+		65BE50C61C6413620025D7E8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/watchOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		65BE50C91C6413780025D7E8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = "<group>"; };
+		65BE50CA1C6413780025D7E8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/tvOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		65BE50CD1C6413840025D7E8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		65BE50CE1C6413840025D7E8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
+		65BE50D31C6413A20025D7E8 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVR.framework; path = Carthage/Build/Mac/DVR.framework; sourceTree = "<group>"; };
 		65C6D3411C62BA440090F6B3 /* FX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = FX.xcconfig; sourceTree = "<group>"; };
-		65F6F8991C62B84500155987 /* FX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C6D34D1C640A6A0090F6B3 /* Money.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Money.framework; path = Carthage/Build/iOS/Money.framework; sourceTree = "<group>"; };
+		65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueCoding.framework; path = Carthage/Build/iOS/ValueCoding.framework; sourceTree = "<group>"; };
+		65C6D3511C640A870090F6B3 /* Money.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Money.framework; path = Carthage/Build/watchOS/Money.framework; sourceTree = "<group>"; };
+		65C6D3521C640A870090F6B3 /* ValueCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueCoding.framework; path = Carthage/Build/watchOS/ValueCoding.framework; sourceTree = "<group>"; };
+		65C6D3551C640A940090F6B3 /* Money.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Money.framework; path = Carthage/Build/tvOS/Money.framework; sourceTree = "<group>"; };
+		65C6D3561C640A940090F6B3 /* ValueCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueCoding.framework; path = Carthage/Build/tvOS/ValueCoding.framework; sourceTree = "<group>"; };
+		65C6D3591C640AA00090F6B3 /* Money.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Money.framework; path = Carthage/Build/Mac/Money.framework; sourceTree = "<group>"; };
+		65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ValueCoding.framework; path = Carthage/Build/Mac/ValueCoding.framework; sourceTree = "<group>"; };
+		65C6D3601C640B370090F6B3 /* BitcoinTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTests.swift; sourceTree = "<group>"; };
+		65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CEX.IO BTCUSD.json"; sourceTree = "<group>"; };
+		65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CEX.IO USDBTC.json"; sourceTree = "<group>"; };
+		65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "OpenExchangeRates.org USDEUR.json"; sourceTree = "<group>"; };
+		65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Yahoo GBPUSD.json"; sourceTree = "<group>"; };
+		65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXOpenExchangeRatesTests.swift; sourceTree = "<group>"; };
+		65C6D3671C640B370090F6B3 /* FXTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXTests.swift; sourceTree = "<group>"; };
+		65C6D3681C640B370090F6B3 /* FXYahooTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXYahooTests.swift; sourceTree = "<group>"; };
+		65C6D3691C640B370090F6B3 /* Troll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Troll.png; sourceTree = "<group>"; };
+		65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
+		65C6D3A41C640BA40090F6B3 /* FX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FX.swift; sourceTree = "<group>"; };
+		65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenExchangeRates.swift; sourceTree = "<group>"; };
+		65C6D3A61C640BA40090F6B3 /* Yahoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yahoo.swift; sourceTree = "<group>"; };
+		65C6D3B91C640D910090F6B3 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		65C6D3BD1C640DA90090F6B3 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVR.framework; path = Carthage/Build/iOS/DVR.framework; sourceTree = "<group>"; };
+		65F6F8991C62B84500155987 /* MoneyFX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoneyFX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F6F8A31C62B84500155987 /* FX-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FX-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		65F6F8B61C62B87E00155987 /* FX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65F6F8C31C62B89D00155987 /* FX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F6F8B61C62B87E00155987 /* MoneyFX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoneyFX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F6F8C31C62B89D00155987 /* MoneyFX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoneyFX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F6F8CC1C62B89D00155987 /* FX-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FX-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		65F6F8DF1C62B8DA00155987 /* FX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoneyFX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F6F8E81C62B8DA00155987 /* FX-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FX-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F6F8F81C62B99300155987 /* FX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FX.h; sourceTree = "<group>"; };
 		65F6F8F91C62B99300155987 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +153,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3BB1C640D910090F6B3 /* Result.framework in Frameworks */,
+				65C6D3BC1C640D910090F6B3 /* SwiftyJSON.framework in Frameworks */,
+				65C6D34F1C640A6A0090F6B3 /* Money.framework in Frameworks */,
+				65C6D3501C640A6A0090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +164,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F6F8A41C62B84500155987 /* FX.framework in Frameworks */,
+				65BE50C41C6413420025D7E8 /* ValueCoding.framework in Frameworks */,
+				65F6F8A41C62B84500155987 /* MoneyFX.framework in Frameworks */,
+				65C6D3BE1C640DA90090F6B3 /* DVR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +174,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE50C71C6413620025D7E8 /* Result.framework in Frameworks */,
+				65BE50C81C6413620025D7E8 /* SwiftyJSON.framework in Frameworks */,
+				65C6D3531C640A870090F6B3 /* Money.framework in Frameworks */,
+				65C6D3541C640A870090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +185,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE50CB1C6413780025D7E8 /* Result.framework in Frameworks */,
+				65BE50CC1C6413780025D7E8 /* SwiftyJSON.framework in Frameworks */,
+				65C6D3571C640A940090F6B3 /* Money.framework in Frameworks */,
+				65C6D3581C640A940090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F6F8CD1C62B89D00155987 /* FX.framework in Frameworks */,
+				65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +204,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE50CF1C6413840025D7E8 /* Result.framework in Frameworks */,
+				65BE50D01C6413840025D7E8 /* SwiftyJSON.framework in Frameworks */,
+				65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */,
+				65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,32 +215,96 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F6F8E91C62B8DA00155987 /* FX.framework in Frameworks */,
+				65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */,
+				65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */,
+				65BE50D41C6413A20025D7E8 /* DVR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65C6D35D1C640AA50090F6B3 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				65BE50D31C6413A20025D7E8 /* DVR.framework */,
+				65BE50CD1C6413840025D7E8 /* Result.framework */,
+				65BE50CE1C6413840025D7E8 /* SwiftyJSON.framework */,
+				65BE50C91C6413780025D7E8 /* Result.framework */,
+				65BE50CA1C6413780025D7E8 /* SwiftyJSON.framework */,
+				65BE50C51C6413620025D7E8 /* Result.framework */,
+				65BE50C61C6413620025D7E8 /* SwiftyJSON.framework */,
+				65C6D3BD1C640DA90090F6B3 /* DVR.framework */,
+				65C6D3B91C640D910090F6B3 /* Result.framework */,
+				65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */,
+				65C6D3591C640AA00090F6B3 /* Money.framework */,
+				65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */,
+				65C6D3551C640A940090F6B3 /* Money.framework */,
+				65C6D3561C640A940090F6B3 /* ValueCoding.framework */,
+				65C6D3511C640A870090F6B3 /* Money.framework */,
+				65C6D3521C640A870090F6B3 /* ValueCoding.framework */,
+				65C6D34D1C640A6A0090F6B3 /* Money.framework */,
+				65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		65C6D35F1C640B370090F6B3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				65C6D3691C640B370090F6B3 /* Troll.png */,
+				65C6D3601C640B370090F6B3 /* BitcoinTests.swift */,
+				65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */,
+				65C6D3671C640B370090F6B3 /* FXTests.swift */,
+				65C6D3681C640B370090F6B3 /* FXYahooTests.swift */,
+				65C6D3611C640B370090F6B3 /* DVR Cassettes */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		65C6D3611C640B370090F6B3 /* DVR Cassettes */ = {
+			isa = PBXGroup;
+			children = (
+				65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */,
+				65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */,
+				65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */,
+				65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */,
+			);
+			path = "DVR Cassettes";
+			sourceTree = "<group>";
+		};
+		65C6D3A21C640BA40090F6B3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */,
+				65C6D3A41C640BA40090F6B3 /* FX.swift */,
+				65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */,
+				65C6D3A61C640BA40090F6B3 /* Yahoo.swift */,
+			);
+			name = Shared;
+			path = Sources/Shared;
+			sourceTree = SOURCE_ROOT;
+		};
 		65F6F88D1C62B77800155987 = {
 			isa = PBXGroup;
 			children = (
 				65F6F8F61C62B99300155987 /* FX */,
-				65F6F89A1C62B84500155987 /* Products */,
-				65F6F8F71C62B99300155987 /* Supporting Files */,
 				65F6F8FA1C62B99300155987 /* Tests */,
+				65F6F89A1C62B84500155987 /* Products */,
+				65C6D35D1C640AA50090F6B3 /* Dependencies */,
+				65F6F8F71C62B99300155987 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
 		65F6F89A1C62B84500155987 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65F6F8991C62B84500155987 /* FX.framework */,
+				65F6F8991C62B84500155987 /* MoneyFX.framework */,
 				65F6F8A31C62B84500155987 /* FX-iOSTests.xctest */,
-				65F6F8B61C62B87E00155987 /* FX.framework */,
-				65F6F8C31C62B89D00155987 /* FX.framework */,
+				65F6F8B61C62B87E00155987 /* MoneyFX.framework */,
+				65F6F8C31C62B89D00155987 /* MoneyFX.framework */,
 				65F6F8CC1C62B89D00155987 /* FX-tvOSTests.xctest */,
-				65F6F8DF1C62B8DA00155987 /* FX.framework */,
+				65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */,
 				65F6F8E81C62B8DA00155987 /* FX-OSXTests.xctest */,
 			);
 			name = Products;
@@ -139,6 +313,7 @@
 		65F6F8F61C62B99300155987 /* FX */ = {
 			isa = PBXGroup;
 			children = (
+				65C6D3A21C640BA40090F6B3 /* Shared */,
 			);
 			path = FX;
 			sourceTree = "<group>";
@@ -156,6 +331,7 @@
 		65F6F8FA1C62B99300155987 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				65C6D35F1C640B370090F6B3 /* Shared */,
 				65F6F8FB1C62B99300155987 /* Info.plist */,
 			);
 			path = Tests;
@@ -214,7 +390,7 @@
 			);
 			name = "FX-iOS";
 			productName = "FX-iOS";
-			productReference = 65F6F8991C62B84500155987 /* FX.framework */;
+			productReference = 65F6F8991C62B84500155987 /* MoneyFX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		65F6F8A21C62B84500155987 /* FX-iOSTests */ = {
@@ -224,6 +400,7 @@
 				65F6F89F1C62B84500155987 /* Sources */,
 				65F6F8A01C62B84500155987 /* Frameworks */,
 				65F6F8A11C62B84500155987 /* Resources */,
+				65C6D35E1C640AFF0090F6B3 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,7 +427,7 @@
 			);
 			name = "FX-watchOS";
 			productName = "FX-watchOS";
-			productReference = 65F6F8B61C62B87E00155987 /* FX.framework */;
+			productReference = 65F6F8B61C62B87E00155987 /* MoneyFX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		65F6F8C21C62B89D00155987 /* FX-tvOS */ = {
@@ -268,7 +445,7 @@
 			);
 			name = "FX-tvOS";
 			productName = "FX-tvOS";
-			productReference = 65F6F8C31C62B89D00155987 /* FX.framework */;
+			productReference = 65F6F8C31C62B89D00155987 /* MoneyFX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		65F6F8CB1C62B89D00155987 /* FX-tvOSTests */ = {
@@ -278,6 +455,7 @@
 				65F6F8C81C62B89D00155987 /* Sources */,
 				65F6F8C91C62B89D00155987 /* Frameworks */,
 				65F6F8CA1C62B89D00155987 /* Resources */,
+				65C6D3B71C640CD20090F6B3 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,7 +482,7 @@
 			);
 			name = "FX-OSX";
 			productName = "FX-OSX";
-			productReference = 65F6F8DF1C62B8DA00155987 /* FX.framework */;
+			productReference = 65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		65F6F8E71C62B8DA00155987 /* FX-OSXTests */ = {
@@ -314,6 +492,7 @@
 				65F6F8E41C62B8DA00155987 /* Sources */,
 				65F6F8E51C62B8DA00155987 /* Frameworks */,
 				65F6F8E61C62B8DA00155987 /* Resources */,
+				65C6D3B81C640CE70090F6B3 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,8 +564,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F6F8FE1C62B99300155987 /* Info.plist in Resources */,
-				65F6F8FD1C62B99300155987 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +571,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3731C640B400090F6B3 /* Troll.png in Resources */,
+				65C6D3851C640B490090F6B3 /* Yahoo GBPUSD.json in Resources */,
+				65C6D3841C640B490090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */,
+				65C6D3831C640B490090F6B3 /* CEX.IO USDBTC.json in Resources */,
+				65C6D3821C640B490090F6B3 /* CEX.IO BTCUSD.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +597,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3781C640B420090F6B3 /* Troll.png in Resources */,
+				65C6D3891C640B4A0090F6B3 /* Yahoo GBPUSD.json in Resources */,
+				65C6D3881C640B4A0090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */,
+				65C6D3871C640B4A0090F6B3 /* CEX.IO USDBTC.json in Resources */,
+				65C6D3861C640B4A0090F6B3 /* CEX.IO BTCUSD.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,16 +616,88 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D37D1C640B430090F6B3 /* Troll.png in Resources */,
+				65C6D38D1C640B4A0090F6B3 /* Yahoo GBPUSD.json in Resources */,
+				65C6D38C1C640B4A0090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */,
+				65C6D38B1C640B4A0090F6B3 /* CEX.IO USDBTC.json in Resources */,
+				65C6D38A1C640B4A0090F6B3 /* CEX.IO BTCUSD.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65C6D35E1C640AFF0090F6B3 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ValueCoding.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Money.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DVR.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 0;
+		};
+		65C6D3B71C640CD20090F6B3 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/ValueCoding.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Money.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/DVR.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 0;
+		};
+		65C6D3B81C640CE70090F6B3 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/ValueCoding.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Money.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Result.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/DVR.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65F6F8941C62B84500155987 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3A71C640BA40090F6B3 /* Bitcoin.swift in Sources */,
+				65C6D3A81C640BA40090F6B3 /* FX.swift in Sources */,
+				65C6D3AA1C640BA40090F6B3 /* Yahoo.swift in Sources */,
+				65C6D3A91C640BA40090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +705,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3751C640B400090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
+				65C6D3761C640B400090F6B3 /* FXTests.swift in Sources */,
+				65C6D3771C640B400090F6B3 /* FXYahooTests.swift in Sources */,
+				65C6D3741C640B400090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +716,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3AB1C640BAE0090F6B3 /* Bitcoin.swift in Sources */,
+				65C6D3AC1C640BAE0090F6B3 /* FX.swift in Sources */,
+				65C6D3AE1C640BAE0090F6B3 /* Yahoo.swift in Sources */,
+				65C6D3AD1C640BAE0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +727,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3AF1C640BAF0090F6B3 /* Bitcoin.swift in Sources */,
+				65C6D3B01C640BAF0090F6B3 /* FX.swift in Sources */,
+				65C6D3B21C640BAF0090F6B3 /* Yahoo.swift in Sources */,
+				65C6D3B11C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +738,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D37A1C640B420090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
+				65C6D37B1C640B420090F6B3 /* FXTests.swift in Sources */,
+				65C6D37C1C640B420090F6B3 /* FXYahooTests.swift in Sources */,
+				65C6D3791C640B420090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +749,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D3B31C640BAF0090F6B3 /* Bitcoin.swift in Sources */,
+				65C6D3B41C640BAF0090F6B3 /* FX.swift in Sources */,
+				65C6D3B61C640BAF0090F6B3 /* Yahoo.swift in Sources */,
+				65C6D3B51C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +760,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D37F1C640B430090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
+				65C6D3801C640B430090F6B3 /* FXTests.swift in Sources */,
+				65C6D3811C640B430090F6B3 /* FXYahooTests.swift in Sources */,
+				65C6D37E1C640B430090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +829,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -603,6 +890,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -646,6 +937,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -661,13 +956,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.danthorpe.Money.FX-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -695,6 +990,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -704,12 +1003,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.danthorpe.Money.FX-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -741,6 +1040,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -797,6 +1100,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -845,6 +1152,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -900,6 +1211,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1037,6 +1352,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1094,6 +1413,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1137,6 +1460,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1186,6 +1513,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

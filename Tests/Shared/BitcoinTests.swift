@@ -10,8 +10,8 @@ import XCTest
 import Result
 import DVR
 import SwiftyJSON
-@testable import Money
-
+import Money
+@testable import MoneyFX
 
 class BitcoinCurrencyTests: XCTestCase {
 

@@ -9,7 +9,8 @@
 import XCTest
 import Result
 import DVR
-@testable import Money
+import Money
+@testable import MoneyFX
 
 class FXYahooTests: FXProviderTests {
 

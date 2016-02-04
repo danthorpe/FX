@@ -27,68 +27,7 @@
 import Foundation
 import Result
 import SwiftyJSON
-
-
-// MARK: - Bitcoin Currency
-
-/**
- # Bitcoin Currency Type
-
- BitcoinCurrencyType is a refinement of CryptoCurrencyType, 
- which allows type restriction when working with Bitcoin.
-*/
-public protocol BitcoinCurrencyType: CryptoCurrencyType { }
-
-public extension Currency {
-
-    /**
-     # Currency.XBT
-     This is the ISO 4217 currency code, however at the moment
-     it is unofficial.
-     
-     unicode \u{20bf} was accepted as the Bitcoin currency
-     symbol in November. However, it's not yet available
-     on Apple platforms. Ƀ is a popular alternative
-     which is available.
-
-     */
-    struct XBT: BitcoinCurrencyType {
-
-        /// - returns: the proposed ISO 4217 currency code
-        public static let code = "XBT"
-
-        /// The smallest unit of Bitcoin is the Satoshi
-        /// - see: https://en.bitcoin.it/wiki/Satoshi_(unit)
-        public static let scale: Int = 8
-
-        /// - returns: a configured NSNumberFormatter
-        public static let formatter: NSNumberFormatter = {
-            let fmtr = NSNumberFormatter()
-            fmtr.numberStyle = .CurrencyStyle
-            fmtr.maximumFractionDigits = scale
-            fmtr.currencySymbol = "Ƀ"
-            return fmtr
-        }()
-    }
-
-    /**
-     # Currency.BTC
-     This is the common code used for Bitcoin,  although it can never become
-     the ISO standard as BT is the country code for Bhutan.
-     */
-    struct BTC: BitcoinCurrencyType {
-        public static let code = "BTC"
-        public static let scale = Currency.XBT.scale
-        public static let formatter = Currency.XBT.formatter
-    }
-}
-
-/// The proposed ISO 4217 Bitcoin MoneyType
-public typealias XBT = _Money<Currency.XBT>
-
-/// The most commonly used Bitcoin MoneyType
-public typealias BTC = _Money<Currency.BTC>
-
+import Money
 
 // MARK - cex.io FX
 

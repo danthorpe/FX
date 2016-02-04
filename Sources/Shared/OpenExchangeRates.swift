@@ -28,6 +28,7 @@ import Foundation
 import ValueCoding
 import Result
 import SwiftyJSON
+import Money
 
 
 // MARK: - Open Exchange Rates FX Service Provider

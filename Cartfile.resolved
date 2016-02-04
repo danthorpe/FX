@@ -1,4 +1,5 @@
+github "venmo/DVR" "v0.2.1"
 github "antitypical/Result" "1.0.2"
 github "SwiftyJSON/SwiftyJSON" "2.3.3"
 github "danthorpe/ValueCoding" "1.2.0"
-github "danthorpe/Money" "1.4.2"
+github "danthorpe/Money" "b90104923b7a4054a42f7c0f4aed57316b433c73"
