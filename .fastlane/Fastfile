@@ -1,0 +1,37 @@
+platform :ios do
+
+  desc "Runs all the tests"
+  lane :test do
+    
+    carthage(
+      platform: "iOS"
+    )
+    
+    scan(
+      scheme: "FX-iOS",
+      output_directory: ".ci/xcodebuild-data/",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data/"
+    )
+          
+  end
+  
+end
+
+platform :mac do
+  
+  desc "Runs all the tests"
+  lane :test do
+    
+    carthage(
+      platform: "Mac"
+    )    
+
+    scan(
+      scheme: "FX-OSX",
+      output_directory: ".ci/xcodebuild-data/",
+      xcargs: "-derivedDataPath .ci/xcodebuild-data/"
+    )
+    
+  end
+  
+end

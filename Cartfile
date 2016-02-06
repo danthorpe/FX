@@ -1,0 +1,3 @@
+github "danthorpe/Money" "development"
+github "antitypical/Result" >= 1.0.0
+github "SwiftyJSON/SwiftyJSON" >= 2.3.0
