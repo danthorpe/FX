@@ -206,10 +206,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */,
+				65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */,
 				65BE50CF1C6413840025D7E8 /* Result.framework in Frameworks */,
 				65BE50D01C6413840025D7E8 /* SwiftyJSON.framework in Frameworks */,
-				65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */,
-				65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */,
 				65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */,
+				65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */,
 				65BE50D41C6413A20025D7E8 /* DVR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
