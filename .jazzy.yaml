@@ -1,0 +1,11 @@
+author_name: Daniel Thorpe
+author_url: http://danthorpe.me
+module_name: MoneyFX
+module_version: 1.0.0
+github_url: https://github.com/danthorpe/FX
+readme: README.md
+podspec: MoneyFX.podspec
+
+swift_version: 2.1.1
+xcodebuild-arguments: -scheme,FX-iOS
+
