@@ -80,3 +80,38 @@ public static func quoteFromNetworkResult(result: Result<(NSData?, NSURLResponse
 ```
 
 Note that the provider doesn’t need to perform any networking itself. It is all done by the framework. This is a deliberate architectural design as it makes it much easier to unit test the adaptor code.
+
+## Bitcoin
+
+FX has support for using [CEX.IO](https://cex.io)’s [trade api](https://cex.io/api) to support quotes of Bitcoin currency exchanges. CEX only supports `USD`, `EUR,` and `RUB` [fiat currencies](https://en.wikipedia.org/wiki/Fiat_money). 
+
+It’s usage is a little bit different for a regular FX. To represent the purchase of Bitcoins use `CEXBuy` like this:
+
+```swift
+CEXBuy<USD>.quote(100) { result in
+    if let tx = result.value {
+        print("\(tx.base) will buy \(tx.counter) at a rate of \(tx.rate) with \(tx.commission)")
+    }
+}
+```
+> US$ 100.00 will buy Ƀ0.26219275 at a rate of 0.0026272 with US$ 0.20 commission.
+
+To represent the sale of Bitcoins use `CEXSell` like this:
+
+```swift
+CEXSell<EUR>.quote(50) { result in
+    if let tx = result.value {
+        print("\(tx.base) will sell for \(tx.counter) at a rate of \(tx.rate) with \(tx.commission) commission.")
+    }
+}
+```
+> Ƀ50.00 will sell for € 17,541.87 at a rate of 351.5405 with Ƀ0.10 commission.
+
+If trying to buy or sell using a currency not supported by CEX the compiler will prevent your code from compiling.
+
+```swift
+CEXSell<GBP>.quote(50) { result in
+    // etc
+}
+```
+> Type 'Currency.GBP' does not conform to protocol 'CEXSupportedFiatCurrencyType'
