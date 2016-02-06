@@ -70,6 +70,7 @@
 		65C6D3BB1C640D910090F6B3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3B91C640D910090F6B3 /* Result.framework */; };
 		65C6D3BC1C640D910090F6B3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */; };
 		65C6D3BE1C640DA90090F6B3 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BD1C640DA90090F6B3 /* DVR.framework */; };
+		65F1CB691C6627AA00C46CF6 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3561C640A940090F6B3 /* ValueCoding.framework */; };
 		65F6F8A41C62B84500155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8991C62B84500155987 /* MoneyFX.framework */; };
 		65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8C31C62B89D00155987 /* MoneyFX.framework */; };
 		65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */; };
@@ -196,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F1CB691C6627AA00C46CF6 /* ValueCoding.framework in Frameworks */,
 				65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1068,7 +1070,6 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1121,7 +1122,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1257,6 +1257,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1304,6 +1308,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
