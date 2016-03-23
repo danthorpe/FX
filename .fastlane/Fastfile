@@ -4,7 +4,8 @@ platform :ios do
   lane :test do
     
     carthage(
-      platform: "iOS"
+      platform: "iOS",
+      use_binaries: false
     )
     
     scan(
@@ -23,7 +24,8 @@ platform :mac do
   lane :test do
     
     carthage(
-      platform: "Mac"
+      platform: "Mac",
+      use_binaries: false      
     )    
 
     scan(

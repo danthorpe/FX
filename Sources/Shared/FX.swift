@@ -40,10 +40,10 @@ import Money
 public protocol MoneyPairType {
 
     /// The currency which the quote is in relation to.
-    typealias BaseMoney: MoneyType
+    associatedtype BaseMoney: MoneyType
 
     /// The currency which is being traded/quoted
-    typealias CounterMoney: MoneyType
+    associatedtype CounterMoney: MoneyType
 }
 
 /**
@@ -81,7 +81,7 @@ public protocol CurrencyMarketTransactionType: MoneyPairType {
  bitcoin with USD, or selling bitcoin for USD.
 */
 public protocol CryptoCurrencyMarketTransactionType: CurrencyMarketTransactionType {
-    typealias FiatCurrency: ISOCurrencyType
+    associatedtype FiatCurrency: ISOCurrencyType
 }
 
 /**

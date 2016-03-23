@@ -63,7 +63,7 @@ class FXYahooTests: FXProviderTests {
     }
 
     func test__faulty_provider() {
-        let expectation = expectationWithDescription("Test: \(__FUNCTION__)")
+        let expectation = expectationWithDescription("Test: \(#function)")
 
         FaultyProvider.fx(100) { result in
             guard let error = result.error else {
@@ -83,7 +83,7 @@ class FXYahooTests: FXProviderTests {
     }
 
     func test__fx() {
-        let expectation = expectationWithDescription("Test: \(__FUNCTION__)")
+        let expectation = expectationWithDescription("Test: \(#function)")
 
         TestableProvider.fx(100) { result in
             if let usd = result.value {
