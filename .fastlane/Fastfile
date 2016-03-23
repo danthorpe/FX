@@ -1,10 +1,20 @@
+
+lane :lint do
+
+    swiftLint(
+        mode: :lint, 
+        config_file: '.swiftlint.yml'
+    )
+end
+
 platform :ios do
 
   desc "Runs all the tests"
   lane :test do
     
     carthage(
-      platform: "iOS"
+      platform: "iOS",
+      use_binaries: false
     )
     
     scan(
@@ -23,7 +33,8 @@ platform :mac do
   lane :test do
     
     carthage(
-      platform: "Mac"
+      platform: "Mac",
+      use_binaries: false      
     )    
 
     scan(

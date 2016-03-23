@@ -138,8 +138,7 @@ public class _OpenExchangeRates<Base: MoneyType, Counter: MoneyType, ID: OpenExc
 
             ifFailure: { error in
                 return Result(error: .NetworkError(error))
-            }
-        )
+            })
     }
 }
 
@@ -150,9 +149,3 @@ public class _OpenExchangeRates<Base: MoneyType, Counter: MoneyType, ID: OpenExc
  - see: `OpenExchangeRatesAppID`
  */
 public class _ForeverFreeOpenExchangeRates<Counter: MoneyType, ID: OpenExchangeRatesAppID>: _OpenExchangeRates<USD, Counter, ID> { }
-
-
-
-
-
-
