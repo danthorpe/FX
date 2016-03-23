@@ -1,3 +1,12 @@
+
+lane :lint do
+
+    swiftLint(
+        mode: :lint, 
+        config_file: '.swiftlint.yml'
+    )
+end
+
 platform :ios do
 
   desc "Runs all the tests"
