@@ -1,5 +1,5 @@
 [![Build status](https://badge.buildkite.com/aeca41d936ba150f724a0c53831466d1d0377ac34a286b2ee9.svg)](https://buildkite.com/blindingskies/money-fx?branch=development)
-[![codecov.io](https://codecov.io/github/danthorpe/FX/coverage.svg?branch=master)](https://codecov.io/github/danthorpe/FX?branch=development)
+[![Coverage Status](https://coveralls.io/repos/github/danthorpe/FX/badge.svg?branch=development)](https://coveralls.io/github/danthorpe/FX?branch=development)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/MoneyFX.svg)](https://img.shields.io/cocoapods/v/MoneyFX.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/MoneyFX.svg?style=flat)](http://cocoadocs.org/docsets/MoneyFX)
