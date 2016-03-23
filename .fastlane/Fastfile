@@ -4,7 +4,8 @@ platform :ios do
   lane :test do
     
     carthage(
-      platform: "iOS"
+      platform: "iOS",
+      use_binaries: false
     )
     
     scan(
