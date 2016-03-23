@@ -381,6 +381,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65F6F8AF1C62B84500155987 /* Build configuration list for PBXNativeTarget "FX-iOS" */;
 			buildPhases = (
+				6564A21A1CA34CDD00ED2F77 /* Swift Lint */,
 				65F6F8941C62B84500155987 /* Sources */,
 				65F6F8951C62B84500155987 /* Frameworks */,
 				65F6F8961C62B84500155987 /* Headers */,
@@ -418,6 +419,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65F6F8BB1C62B87E00155987 /* Build configuration list for PBXNativeTarget "FX-watchOS" */;
 			buildPhases = (
+				6564A21B1CA34CFB00ED2F77 /* Swift Lint */,
 				65F6F8B11C62B87E00155987 /* Sources */,
 				65F6F8B21C62B87E00155987 /* Frameworks */,
 				65F6F8B31C62B87E00155987 /* Headers */,
@@ -436,6 +438,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65F6F8D41C62B89D00155987 /* Build configuration list for PBXNativeTarget "FX-tvOS" */;
 			buildPhases = (
+				6564A21C1CA34D1700ED2F77 /* Swift Lint */,
 				65F6F8BE1C62B89D00155987 /* Sources */,
 				65F6F8BF1C62B89D00155987 /* Frameworks */,
 				65F6F8C01C62B89D00155987 /* Headers */,
@@ -473,6 +476,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65F6F8F01C62B8DA00155987 /* Build configuration list for PBXNativeTarget "FX-OSX" */;
 			buildPhases = (
+				6564A21D1CA34D2B00ED2F77 /* Swift Lint */,
 				65F6F8DA1C62B8DA00155987 /* Sources */,
 				65F6F8DB1C62B8DA00155987 /* Frameworks */,
 				65F6F8DC1C62B8DA00155987 /* Headers */,
@@ -629,6 +633,66 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6564A21A1CA34CDD00ED2F77 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    [ -f .swiftlint.yml ] && CONFIG=\".swiftlint.yml\" || CONFIG=\"$HOME/.swiftlint.yml\"\n    swiftlint lint --config $CONFIG\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			showEnvVarsInLog = 0;
+		};
+		6564A21B1CA34CFB00ED2F77 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    [ -f .swiftlint.yml ] && CONFIG=\".swiftlint.yml\" || CONFIG=\"$HOME/.swiftlint.yml\"\n    swiftlint lint --config $CONFIG\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			showEnvVarsInLog = 0;
+		};
+		6564A21C1CA34D1700ED2F77 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    [ -f .swiftlint.yml ] && CONFIG=\".swiftlint.yml\" || CONFIG=\"$HOME/.swiftlint.yml\"\n    swiftlint lint --config $CONFIG\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			showEnvVarsInLog = 0;
+		};
+		6564A21D1CA34D2B00ED2F77 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    [ -f .swiftlint.yml ] && CONFIG=\".swiftlint.yml\" || CONFIG=\"$HOME/.swiftlint.yml\"\n    swiftlint lint --config $CONFIG\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			showEnvVarsInLog = 0;
+		};
 		65C6D35E1C640AFF0090F6B3 /* Carthage Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -70,7 +70,7 @@ public final class Yahoo<Base: MoneyType, Counter: MoneyType>: FXRemoteProvider<
     /**
      This function is used to map the network result into a quote.
 
-     - paramter result: the network result, represented as `Result<T,E>` where
+     - parameter result: the network result, represented as `Result<T,E>` where
      the value, T, is a tuple of data and response. The error, E, is an `NSError`.
      - returns: a `Result<FXQuote, FXError>`.
      */
@@ -102,7 +102,6 @@ public final class Yahoo<Base: MoneyType, Counter: MoneyType>: FXRemoteProvider<
 
             ifFailure: { error in
                 return Result(error: .NetworkError(error))
-            }
-        )
+            })
     }
 }

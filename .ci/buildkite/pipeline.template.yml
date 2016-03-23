@@ -1,5 +1,8 @@
 steps:
   -
+    name: ":muscle: Lint"
+    command: .ci/scripts/lint    
+  -
     name: ":fastlane: Test iOS"
     command: .ci/scripts/test-ios
     agents:

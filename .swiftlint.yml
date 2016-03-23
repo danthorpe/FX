@@ -1,0 +1,13 @@
+excluded:
+  - Carthage
+  - Tests
+disabled_rules:
+#  - valid_docs
+#  - statement_position
+  - line_length
+  - type_name
+  - variable_name
+file_length:
+  warning: 750
+  error: 1200
+  
