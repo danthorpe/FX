@@ -70,13 +70,13 @@ public protocol CurrencyMarketTransactionType: MoneyPairType {
 /**
  A protocol to define a crypto currency market transaction. It refines
  CurrencyMarketTransactionType, and adds a new typealias for the FiatCurrency.
- 
- By crypto currency market transaction, we refer to a currency exchange 
+
+ By crypto currency market transaction, we refer to a currency exchange
  involving a crypto currency, such as bitcoin, or litecoin or similar.
- 
+
  A Fiat Currency is a currency which is maintained by a national bank, such as
  USD, or EUR.
- 
+
  Typrically a crypto currency market transaction is where the user is purchasing
  bitcoin with USD, or selling bitcoin for USD.
 */
@@ -103,10 +103,9 @@ public struct FXQuote: ValueCoding {
     /**
      Construct with a rate and commission percentage (defaults to
      zero).
-     
+
      - parameter rate: a `BankersDecimal`.
      - parameter percentage: a `BankersDecimal`.
-     - returns: a `FXQuote`
     */
     public init(rate: BankersDecimal, percentage: BankersDecimal = 0) {
         self.rate = rate
@@ -116,8 +115,10 @@ public struct FXQuote: ValueCoding {
     /**
      ## Calculate the commission.
      Taken as the ammount of the base currency.
+     - parameter base: an amount of the base currency type
+     - returns: an amount of the base currency type
     */
-    public func commission<B : MoneyType where B.DecimalStorageType == BankersDecimal.DecimalStorageType>(base: B) -> B {
+    public func commission<B: MoneyType where B.DecimalStorageType == BankersDecimal.DecimalStorageType>(base: B) -> B {
         return (percentage / 100) * base
     }
 
@@ -134,6 +135,8 @@ public struct FXQuote: ValueCoding {
      Most foreign exchange services will build their commission
      into their rates. So to implement a provider for a serivce
      can work just like the `Yahoo` one here.
+      - parameter base: an amount in the base currency type
+      - returns: an amount in the counter currency type.
     */
     public func transactionValueForBaseValue<B: MoneyType, C: MoneyType where B.DecimalStorageType == BankersDecimal.DecimalStorageType, C.DecimalStorageType == BankersDecimal.DecimalStorageType>(base: B) -> C {
         return ((1 - (percentage / 100)) * base).convertWithRate(rate)
@@ -144,11 +147,11 @@ public struct FXQuote: ValueCoding {
  FXTransaction is a generic value type which represents a
  foreign currency transaction. It is generic over two
  MoneyType.
- 
+
  There are some restrictions on the two generic types, to support
  the mathematics and ValueCoding. However, essentially, if you use
  _Money then these are limitations are all met.
- 
+
  - see: MoneyPairType
 */
 public struct FXTransaction<Base, Counter where
@@ -187,12 +190,11 @@ public struct FXTransaction<Base, Counter where
     /**
      A FXTransaction can be created with the BaseMoney value (i.e. how much money
      is being exchanged), and the FXQuote value. Using the quote, the
-     counter value (i.e. how much is received) and commission (i.e. how much of 
+     counter value (i.e. how much is received) and commission (i.e. how much of
      the base is spent on commission) is automatically calculated.
-     
+
      - parameter base: the value for base
      - parameter quote: a FXQuote
-     - returns: an initialized FXTransaction value
     */
     public init(base: BaseMoney, quote: FXQuote) {
         self.base = base
@@ -225,13 +227,13 @@ public enum FXError: ErrorType, Equatable {
  # FX Provider
  `FXProviderType` defines the interface for a FX
  provider.
- 
+
  `FXProviderType` refines `CurrencyPairType` which
  means that FX Providers should be generic types. E.g.
- 
+
      AcmeFX<EUR, USD>
- 
- would be the provider type, to exchange EUR to USD 
+
+ would be the provider type, to exchange EUR to USD
  using AcmeFX services.
 */
 public protocol FXProviderType: MoneyPairType {
@@ -254,9 +256,9 @@ public protocol FXProviderType: MoneyPairType {
 public protocol FXLocalProviderType: FXProviderType {
 
     /**
-     Generate the quote using the `BaseMoney` and 
+     Generate the quote using the `BaseMoney` and
      `CounterMoney` generic types.
-    
+
      - returns: a `FXQuote` which contains the rate.
     */
     static func quote() -> FXQuote
@@ -274,6 +276,8 @@ extension FXLocalProviderType where
 
     /**
      This is the primary API used to determine for Foreign Exchange transactions.
+     - parameter base: an amount of money in the base currency
+     - returns: an FX transaction in the base and counter currencies.
      */
     public static func fx(base: BaseMoney) -> Transaction {
         return Transaction(base: base, quote: quote())
@@ -288,11 +292,11 @@ extension FXLocalProviderType where
 public protocol FXRemoteProviderType: FXProviderType {
 
     /**
-     Return the NSURLSession to use to make the request. It 
+     Return the NSURLSession to use to make the request. It
      should be notes that this session must be retained by
      something in memory, e.g. use a shared session, or
      a session owned by a singleton.
-     
+
      By default, returns `NSURLSession.sharedSession()`.
 
      - returns: a `NSURLSession`.
@@ -330,6 +334,7 @@ extension FXRemoteProviderType {
     /**
      Default implementation to return the shared
      `NSURLSession`.
+     - returns: an NSURLSession for use with remote requests.
     */
     public static func session() -> NSURLSession {
         return NSURLSession.sharedSession()
@@ -361,10 +366,10 @@ extension FXRemoteProviderType where
              }
              print("Exchanged \(pounds) into \(usd) with a rate of \(quote.rate)")
           }
-     
-      - parameter base: the `BaseMoney` which is a `MoneyType`. Because it's literal 
+
+      - parameter base: the `BaseMoney` which is a `MoneyType`. Because it's literal
      convertible, this can receive a literal if you're just playing.
-      - parameter completion: a completion block which receives a `Result<T, E>`. 
+      - parameter completion: a completion block which receives a `Result<T, E>`.
      The error is an `FXError` value, and the result "value" is a tuple, of the
      base money, the quote, and the counter money, or `(BaseMoney, FXQuote, CounterMoney)`.
      - returns: an `NSURLSessionDataTask`.
@@ -438,8 +443,8 @@ public final class FXQuoteCoder: NSObject, NSCoding, CodingType {
     public let value: FXQuote
 
     /// Initialized with an FXQuote
-    public required init(_ v: FXQuote) {
-        value = v
+    public required init(_ aValue: FXQuote) {
+        value = aValue
     }
 
     public init?(coder aDecoder: NSCoder) {
@@ -453,7 +458,6 @@ public final class FXQuoteCoder: NSObject, NSCoding, CodingType {
         aCoder.encodeObject(value.percentage.encoded, forKey: Keys.Percentage.rawValue)
     }
 }
-
 
 private enum FXTransactionCoderKeys: String {
     case Base = "base"
@@ -479,8 +483,8 @@ public final class FXTransactionCoder<Base, Counter where
     public let value: FXTransaction<Base, Counter>
 
     /// Initialized with an FXTransaction
-    public required init(_ v: FXTransaction<Base, Counter>) {
-        value = v
+    public required init(_ aValue: FXTransaction<Base, Counter>) {
+        value = aValue
     }
 
     public init?(coder aDecoder: NSCoder) {
@@ -500,7 +504,7 @@ public final class FXTransactionCoder<Base, Counter where
 }
 
 
-public func ==(lhs: FXError, rhs: FXError) -> Bool {
+public func == (lhs: FXError, rhs: FXError) -> Bool {
     switch (lhs, rhs) {
     case let (.NetworkError(aError), .NetworkError(bError)):
         return aError.isEqual(bError)
@@ -514,4 +518,3 @@ public func ==(lhs: FXError, rhs: FXError) -> Bool {
         return false
     }
 }
-

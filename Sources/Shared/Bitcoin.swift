@@ -1,4 +1,4 @@
- //
+//
 //  Bitcoin.swift
 //  Money
 //
@@ -33,9 +33,9 @@ import Money
 
 /**
  CEX.io Supported fiat currencies
- 
+
  CEX only supports USD, EUR and RUB.
- 
+
  - see: https://cex.io
 */
 public protocol CEXSupportedFiatCurrencyType: ISOCurrencyType {
@@ -90,8 +90,12 @@ class _CEX<T: CryptoCurrencyMarketTransactionType where T.FiatCurrency: CEXSuppo
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let data = try! JSON(["amnt": Double(1.0)]).rawData()
-        request.HTTPBody = data
+        do {
+            let data = try JSON(["amnt": Double(1.0)]).rawData()
+            request.HTTPBody = data
+        } catch {
+            print("Caught error: \(error) accessing JSON data for `amnt`.")
+        }
         return request
     }
 
@@ -128,23 +132,22 @@ class _CEX<T: CryptoCurrencyMarketTransactionType where T.FiatCurrency: CEXSuppo
 
             ifFailure: { error in
                 return Result(error: .NetworkError(error))
-            }
-        )
+            })
     }
 }
 
 /**
   Represents the purchase of bitcoin using CEX.io.
-  
+
   Usage is entirely type based - there is nothing to initialize. It is
   generic over USD, EUR or RUB, no other currency types. For example.
-  
+
   ```swift
-  CEXBuy<USD>.quote(1_000) { transaction in 
+  CEXBuy<USD>.quote(1_000) { transaction in
     // etc.
   }
   ```
-  
+
   The above sample represents buying US$1,000 worth of BTC using CEX.io.
 */
 public final class CEXBuy<Base: MoneyType where Base.Currency: CEXSupportedFiatCurrencyType>: _CEX<_CEXBuy<Base>> { }
@@ -164,8 +167,3 @@ public final class CEXBuy<Base: MoneyType where Base.Currency: CEXSupportedFiatC
   The above sample represents selling 10 bitcoins for euros using CEX.io.
   */
 public final class CEXSell<Counter: MoneyType where Counter.Currency: CEXSupportedFiatCurrencyType>: _CEX<_CEXSell<Counter>> { }
-
-
-
-
-
