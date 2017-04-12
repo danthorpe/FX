@@ -83,7 +83,7 @@ Note that the provider doesn’t need to perform any networking itself. It is al
 
 ## Bitcoin
 
-FX has support for using [CEX.IO](https://cex.io)’s [trade api](https://cex.io/api) to support quotes of Bitcoin currency exchanges. CEX only supports `USD`, `EUR,` and `RUB` [fiat currencies](https://en.wikipedia.org/wiki/Fiat_money). 
+FX has support for using [CEX.IO](https://cex.io)’s [trade api](https://cex.io/api) to support quotes of Bitcoin currency exchanges. CEX only supports `USD`, `EUR`, and `RUB` [fiat currencies](https://en.wikipedia.org/wiki/Fiat_money). 
 
 It’s usage is a little bit different for a regular FX. To represent the purchase of Bitcoins use `CEXBuy` like this:
 
