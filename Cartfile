@@ -1,3 +1,4 @@
-github "danthorpe/Money" >= 1.5.1
-github "antitypical/Result" >= 1.0.0
-github "SwiftyJSON/SwiftyJSON" >= 2.3.0
+#github "danthorpe/Money" "feature/MNY-79_updates_for_xcode_9"
+github "Mandelkind/Money" "decimals"
+github "antitypical/Result" ~> 3.2
+github "SwiftyJSON/SwiftyJSON" ~> 4.0

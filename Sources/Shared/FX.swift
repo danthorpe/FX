@@ -24,9 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 import Foundation
-import ValueCoding
 import Result
 import SwiftyJSON
 import Money
@@ -40,10 +38,10 @@ import Money
 public protocol MoneyPairType {
 
     /// The currency which the quote is in relation to.
-    associatedtype BaseMoney: MoneyType
+    associatedtype BaseMoney: ISOMoneyProtocol
 
     /// The currency which is being traded/quoted
-    associatedtype CounterMoney: MoneyType
+    associatedtype CounterMoney: ISOMoneyProtocol
 }
 
 /**
@@ -81,7 +79,7 @@ public protocol CurrencyMarketTransactionType: MoneyPairType {
  bitcoin with USD, or selling bitcoin for USD.
 */
 public protocol CryptoCurrencyMarketTransactionType: CurrencyMarketTransactionType {
-    associatedtype FiatCurrency: ISOCurrencyType
+    associatedtype FiatCurrency: ISOCurrencyProtocol
 }
 
 /**
@@ -89,25 +87,22 @@ public protocol CryptoCurrencyMarketTransactionType: CurrencyMarketTransactionTy
  Represents an FX quote with a rate and commision
  percentage. By default the percentage is 0.
 */
-public struct FXQuote: ValueCoding {
+public struct FXQuote {
 
-    /// The Coder required for ValueCoding
-    public typealias Coder = FXQuoteCoder
-
-    /// The exchange rate, stored as a `BankersDecimal`.
-    public let rate: BankersDecimal
+    /// The exchange rate, stored as a `Decimal`.
+    public let rate: Decimal
 
     /// The commission as a percentage, e.g. 0.2 => 0.2%
-    public let percentage: BankersDecimal
+    public let percentage: Decimal
 
     /**
      Construct with a rate and commission percentage (defaults to
      zero).
 
-     - parameter rate: a `BankersDecimal`.
-     - parameter percentage: a `BankersDecimal`.
+     - parameter rate: a `Decimal`.
+     - parameter percentage: a `Decimal`.
     */
-    public init(rate: BankersDecimal, percentage: BankersDecimal = 0) {
+    public init(rate: Decimal, percentage: Decimal = 0) {
         self.rate = rate
         self.percentage = percentage
     }
@@ -118,8 +113,8 @@ public struct FXQuote: ValueCoding {
      - parameter base: an amount of the base currency type
      - returns: an amount of the base currency type
     */
-    public func commission<B: MoneyType where B.DecimalStorageType == BankersDecimal.DecimalStorageType>(base: B) -> B {
-        return (percentage / 100) * base
+	public func commission<T: ISOMoneyProtocol>(_ base: T) -> T {
+        return T(decimal: (percentage / 100) * base.decimal)
     }
 
     /**
@@ -138,35 +133,26 @@ public struct FXQuote: ValueCoding {
       - parameter base: an amount in the base currency type
       - returns: an amount in the counter currency type.
     */
-    public func transactionValueForBaseValue<B: MoneyType, C: MoneyType where B.DecimalStorageType == BankersDecimal.DecimalStorageType, C.DecimalStorageType == BankersDecimal.DecimalStorageType>(base: B) -> C {
-        return ((1 - (percentage / 100)) * base).convertWithRate(rate)
+	public func transactionValueForBaseValue<B: ISOMoneyProtocol, C: ISOMoneyProtocol>(_ base: B) -> C {
+		return C(decimal: (1 - (percentage / 100)) * base.decimal * rate)
     }
 }
 
 /**
  FXTransaction is a generic value type which represents a
  foreign currency transaction. It is generic over two
- MoneyType.
+ MoneyProtocol.
 
  There are some restrictions on the two generic types, to support
- the mathematics and ValueCoding. However, essentially, if you use
+ the mathematics. However, essentially, if you use
  _Money then these are limitations are all met.
 
  - see: MoneyPairType
 */
-public struct FXTransaction<Base, Counter where
-    Base: MoneyType,
-    Base.Coder: NSCoding,
-    Base.Coder.ValueType == Base,
-    Base.DecimalStorageType == BankersDecimal.DecimalStorageType,
-    Counter: MoneyType,
-    Counter.Coder: NSCoding,
-    Counter.Coder.ValueType == Counter,
-    Counter.DecimalStorageType == BankersDecimal.DecimalStorageType>: MoneyPairType, ValueCoding {
+public struct FXTransaction<Base: ISOMoneyProtocol, Counter: ISOMoneyProtocol>: MoneyPairType {
 
-    public typealias Coder = FXTransactionCoder<BaseMoney, CounterMoney>
-    public typealias BaseMoney = Base
-    public typealias CounterMoney = Counter
+	public typealias BaseMoney = Base
+	public typealias CounterMoney = Counter
 
     /// - returns: the BaseMoney value.
     public let base: BaseMoney
@@ -174,13 +160,13 @@ public struct FXTransaction<Base, Counter where
     /// - returns: the BaseMoney commission.
     public let commission: BaseMoney
 
-    /// - returns: the rate, a BankersDecimal.
-    public let rate: BankersDecimal
+    /// - returns: the rate, a Decimal.
+    public let rate: Decimal
 
     /// - returns: the CounterMoney value.
     public let counter: CounterMoney
 
-    internal init(base: BaseMoney, commission: BaseMoney, rate: BankersDecimal, counter: CounterMoney) {
+    internal init(base: BaseMoney, commission: BaseMoney, rate: Decimal, counter: CounterMoney) {
         self.base = base
         self.commission = commission
         self.rate = rate
@@ -208,19 +194,19 @@ public struct FXTransaction<Base, Counter where
  # FXError
  This is an error type used in FX methods.
 */
-public enum FXError: ErrorType, Equatable {
+public enum FXError: Error, Equatable {
 
     /// When there is a network error
-    case NetworkError(NSError)
+    case networkError(NSError)
 
     /// If there was no data/response
-    case NoData
+    case noData
 
     /// If the data was corrupted or invalid
-    case InvalidData(NSData)
+    case invalidData(Data)
 
     /// If a rate could not be found
-    case RateNotFound(String)
+    case rateNotFound(String)
 }
 
 /**
@@ -264,22 +250,17 @@ public protocol FXLocalProviderType: FXProviderType {
     static func quote() -> FXQuote
 }
 
-extension FXLocalProviderType where
-    BaseMoney.Coder: NSCoding,
-    BaseMoney.Coder.ValueType == BaseMoney,
-    BaseMoney.DecimalStorageType == BankersDecimal.DecimalStorageType,
-    CounterMoney.Coder: NSCoding,
-    CounterMoney.Coder.ValueType == CounterMoney,
-    CounterMoney.DecimalStorageType == BankersDecimal.DecimalStorageType {
+extension FXLocalProviderType {
 
-    public typealias Transaction = FXTransaction<BaseMoney, CounterMoney>
+	public typealias Transaction = FXTransaction<BaseMoney, CounterMoney>
 
     /**
      This is the primary API used to determine for Foreign Exchange transactions.
      - parameter base: an amount of money in the base currency
      - returns: an FX transaction in the base and counter currencies.
      */
-    public static func fx(base: BaseMoney) -> Transaction {
+	@discardableResult
+    public static func fx(_ base: BaseMoney) -> Transaction {
         return Transaction(base: base, quote: quote())
     }
 }
@@ -301,7 +282,7 @@ public protocol FXRemoteProviderType: FXProviderType {
 
      - returns: a `NSURLSession`.
     */
-    static func session() -> NSURLSession
+    static func session() -> URLSession
 
     /**
      Create a suitable NSURLRequest to convert from the
@@ -315,7 +296,7 @@ public protocol FXRemoteProviderType: FXProviderType {
      - parameter symbol: the currency code of the target currency, a `String`
      - returns: a `NSURLRequest`
      */
-    static func request() -> NSURLRequest
+    static func request() -> URLRequest
 
     /**
      Parse the received NSData into the providers own QuoteType. More
@@ -326,7 +307,7 @@ public protocol FXRemoteProviderType: FXProviderType {
      - returns: a `Result` generic over the `QuoteType` and `FX.Error` which
      supports general errors for mal-formed or missing information.
      */
-    static func quoteFromNetworkResult(result: Result<(NSData?, NSURLResponse?), NSError>) -> Result<FXQuote, FXError>
+    static func quoteFromNetworkResult(result: Result<(Data?, URLResponse?), NSError>) -> Result<FXQuote, FXError>
 }
 
 extension FXRemoteProviderType {
@@ -336,22 +317,16 @@ extension FXRemoteProviderType {
      `NSURLSession`.
      - returns: an NSURLSession for use with remote requests.
     */
-    public static func session() -> NSURLSession {
-        return NSURLSession.sharedSession()
+    public static func session() -> URLSession {
+        return URLSession.shared
     }
 }
 
-extension FXRemoteProviderType where
-    BaseMoney.Coder: NSCoding,
-    BaseMoney.Coder.ValueType == BaseMoney,
-    BaseMoney.DecimalStorageType == BankersDecimal.DecimalStorageType,
-    CounterMoney.Coder: NSCoding,
-    CounterMoney.Coder.ValueType == CounterMoney,
-    CounterMoney.DecimalStorageType == BankersDecimal.DecimalStorageType {
+extension FXRemoteProviderType {
 
-    public typealias Transaction = FXTransaction<BaseMoney, CounterMoney>
+	public typealias Transaction = FXTransaction<BaseMoney, CounterMoney>
 
-    internal static func fxFromQuoteWithBase(base: BaseMoney) -> FXQuote -> Transaction {
+	internal static func fxFromQuoteWithBase(_ base: BaseMoney) -> (FXQuote) -> Transaction {
         return { Transaction(base: base, quote: $0) }
     }
 
@@ -367,14 +342,14 @@ extension FXRemoteProviderType where
              print("Exchanged \(pounds) into \(usd) with a rate of \(quote.rate)")
           }
 
-      - parameter base: the `BaseMoney` which is a `MoneyType`. Because it's literal
+      - parameter base: the `BaseMoney` which is a `MoneyProtocol`. Because it's literal
      convertible, this can receive a literal if you're just playing.
       - parameter completion: a completion block which receives a `Result<T, E>`.
      The error is an `FXError` value, and the result "value" is a tuple, of the
      base money, the quote, and the counter money, or `(BaseMoney, FXQuote, CounterMoney)`.
      - returns: an `NSURLSessionDataTask`.
      */
-    public static func quote(base: BaseMoney, completion: Result<Transaction, FXError> -> Void) -> NSURLSessionDataTask {
+	public static func quote(_ base: BaseMoney, completion: @escaping (Result<Transaction, FXError>) -> Void) -> URLSessionDataTask {
         let client = FXServiceProviderNetworkClient(session: session())
         let fxFromQuote = fxFromQuoteWithBase(base)
         return client.get(request(), adaptor: quoteFromNetworkResult) { completion($0.map(fxFromQuote)) }
@@ -391,27 +366,27 @@ extension FXRemoteProviderType where
             }
             print("We have \(usd)") // We have $119 (or whatever)
          }
-     - parameter base: the `BaseMoney` which is a `MoneyType`. Because it's literal
+     - parameter base: the `BaseMoney` which is a `MoneyProtocol`. Because it's literal
      convertible, this can receive a literal if you're just playing.
      - parameter completion: a completion block which receives a `Result<T, E>`.
      The error is an `FXError` value, and the result "value" is the `CounterMoney`.
      - returns: an `NSURLSessionDataTask`.
     */
-    public static func fx(base: BaseMoney, completion: Result<CounterMoney, FXError> -> Void) -> NSURLSessionDataTask {
+	public static func fx(_ base: BaseMoney, completion: @escaping (Result<CounterMoney, FXError>) -> Void) -> URLSessionDataTask {
         return quote(base) { completion($0.map { $0.counter }) }
     }
 }
 
 internal class FXServiceProviderNetworkClient {
-    let session: NSURLSession
+	let session: URLSession
 
-    init(session: NSURLSession = NSURLSession.sharedSession()) {
+	init(session: URLSession = URLSession.shared) {
         self.session = session
     }
 
-    func get(request: NSURLRequest, adaptor: Result<(NSData?, NSURLResponse?), NSError> -> Result<FXQuote, FXError>, completion: Result<FXQuote, FXError> -> Void) -> NSURLSessionDataTask {
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            let result = error.map { Result(error: $0) } ?? Result(value: (data, response))
+	func get(_ request: URLRequest, adaptor: @escaping (Result<(Data?, URLResponse?), NSError>) -> Result<FXQuote, FXError>, completion: @escaping (Result<FXQuote, FXError>) -> Void) -> URLSessionDataTask {
+		let task = session.dataTask(with: request) { data, response, error in
+            let result = error.map { Result(error: NSError(domain: NSURLErrorDomain, code: URLError.badServerResponse.rawValue, userInfo: [NSLocalizedDescriptionKey: $0.localizedDescription])) } ?? Result(value: (data, response))
             completion(adaptor(result))
         }
         task.resume()
@@ -423,96 +398,17 @@ internal class FXServiceProviderNetworkClient {
  A trivial generic class suitable for subclassing for FX remote providers.
  It automatically sets up the typealias for MoneyPairType.
 */
-public class FXRemoteProvider<B: MoneyType, T: MoneyType> {
-    public typealias BaseMoney = B
-    public typealias CounterMoney = T
-}
-
-// MARK: - ValueCoding
-
-/**
- A CodingType which codes FXQuote
-*/
-public final class FXQuoteCoder: NSObject, NSCoding, CodingType {
-    enum Keys: String {
-        case Rate = "rate"
-        case Percentage = "percentage"
-    }
-
-    /// The value being encoded or decoded
-    public let value: FXQuote
-
-    /// Initialized with an FXQuote
-    public required init(_ aValue: FXQuote) {
-        value = aValue
-    }
-
-    public init?(coder aDecoder: NSCoder) {
-        let rate = BankersDecimal.decode(aDecoder.decodeObjectForKey(Keys.Rate.rawValue))
-        let percentage = BankersDecimal.decode(aDecoder.decodeObjectForKey(Keys.Percentage.rawValue))
-        value = FXQuote(rate: rate!, percentage: percentage!)
-    }
-
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(value.rate.encoded, forKey: Keys.Rate.rawValue)
-        aCoder.encodeObject(value.percentage.encoded, forKey: Keys.Percentage.rawValue)
-    }
-}
-
-private enum FXTransactionCoderKeys: String {
-    case Base = "base"
-    case Commission = "commission"
-    case Rate = "rate"
-    case Counter = "counter"
-}
-
-/**
- A CodingType which codes FXTransaction
-*/
-public final class FXTransactionCoder<Base, Counter where
-    Base: MoneyType,
-    Base.Coder: NSCoding,
-    Base.Coder.ValueType == Base,
-    Base.DecimalStorageType == BankersDecimal.DecimalStorageType,
-    Counter: MoneyType,
-    Counter.Coder: NSCoding,
-    Counter.Coder.ValueType == Counter,
-    Counter.DecimalStorageType == BankersDecimal.DecimalStorageType>: NSObject, NSCoding, CodingType {
-
-    /// The value being encoded or decoded
-    public let value: FXTransaction<Base, Counter>
-
-    /// Initialized with an FXTransaction
-    public required init(_ aValue: FXTransaction<Base, Counter>) {
-        value = aValue
-    }
-
-    public init?(coder aDecoder: NSCoder) {
-        let base: Base? = Base.decode(aDecoder.decodeObjectForKey(FXTransactionCoderKeys.Base.rawValue))
-        let rate = BankersDecimal.decode(aDecoder.decodeObjectForKey(FXTransactionCoderKeys.Rate.rawValue))
-        let commission = Base.decode(aDecoder.decodeObjectForKey(FXTransactionCoderKeys.Commission.rawValue))
-        let counter = Counter.decode(aDecoder.decodeObjectForKey(FXTransactionCoderKeys.Counter.rawValue))
-        value = FXTransaction(base: base!, commission: commission!, rate: rate!, counter: counter!)
-    }
-
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(value.base.encoded, forKey: FXTransactionCoderKeys.Base.rawValue)
-        aCoder.encodeObject(value.rate.encoded, forKey: FXTransactionCoderKeys.Rate.rawValue)
-        aCoder.encodeObject(value.commission.encoded, forKey: FXTransactionCoderKeys.Commission.rawValue)
-        aCoder.encodeObject(value.counter.encoded, forKey: FXTransactionCoderKeys.Counter.rawValue)
-    }
-}
-
+open class FXRemoteProvider<BaseMoney: ISOMoneyProtocol, CounterMoney: ISOMoneyProtocol> {}
 
 public func == (lhs: FXError, rhs: FXError) -> Bool {
     switch (lhs, rhs) {
-    case let (.NetworkError(aError), .NetworkError(bError)):
-        return aError.isEqual(bError)
-    case (.NoData, .NoData):
+    case (.noData, .noData):
         return true
-    case let (.InvalidData(aData), .InvalidData(bData)):
-        return aData.isEqualToData(bData)
-    case let (.RateNotFound(aStr), .RateNotFound(bStr)):
+	case let (.networkError(aError), .networkError(bError)):
+		return aError == bError
+	case let (.invalidData(aData), .invalidData(bData)):
+		return aData == bData
+    case let (.rateNotFound(aStr), .rateNotFound(bStr)):
         return aStr == bStr
     default:
         return false

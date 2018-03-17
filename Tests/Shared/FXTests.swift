@@ -16,7 +16,7 @@ import Money
 class Sessions {
 
     static func sessionWithCassetteName(name: String) -> Session {
-        return sharedInstance.sessionWithCassetteName(name)
+		return sharedInstance.sessionWithCassetteName(name: name)
     }
 
     static let sharedInstance = Sessions()
@@ -33,15 +33,15 @@ class Sessions {
     }
 }
 
-func createGarbageData() -> NSData {
+func createGarbageData() -> Data {
     return MoneyTestHelper.createGarbageData()
 }
 
 class MoneyTestHelper {
-    static func createGarbageData() -> NSData {
-        let path = NSBundle(forClass: MoneyTestHelper.self).pathForResource("Troll", ofType: "png")
-        let data = NSData(contentsOfFile: path!)
-        return data!
+    static func createGarbageData() -> Data {
+        let url = Bundle(for: MoneyTestHelper.self).url(forResource: "Troll", withExtension: "png")
+        let data = try! Data(contentsOf: url!)
+        return data
     }
 }
 
@@ -54,16 +54,16 @@ class TestableFXRemoteProvider<Provider: FXRemoteProviderType>: FXRemoteProvider
         return Provider.name()
     }
 
-    static func session() -> NSURLSession {
-        return Sessions.sessionWithCassetteName(name())
+    static func session() -> URLSession {
+		return Sessions.sessionWithCassetteName(name: name())
     }
 
-    static func request() -> NSURLRequest {
+    static func request() -> URLRequest {
         return Provider.request()
     }
 
-    static func quoteFromNetworkResult(result: Result<(NSData?, NSURLResponse?), NSError>) -> Result<FXQuote, FXError> {
-        return Provider.quoteFromNetworkResult(result)
+    static func quoteFromNetworkResult(result: Result<(Data?, URLResponse?), NSError>) -> Result<FXQuote, FXError> {
+		return Provider.quoteFromNetworkResult(result: result)
     }
 }
 
@@ -76,34 +76,28 @@ class FaultyFXRemoteProvider<Provider: FXRemoteProviderType>: FXRemoteProviderTy
         return Provider.name()
     }
 
-    static func session() -> NSURLSession {
+    static func session() -> URLSession {
         return Provider.session()
     }
 
-    static func request() -> NSURLRequest {
+    static func request() -> URLRequest {
         let request = Provider.request()
-        if let url = request.URL,
-            host = url.host,
-            modified = NSURL(string: url.absoluteString.stringByReplacingOccurrencesOfString(host, withString: "broken-host.xyz")) {
-                return NSURLRequest(URL: modified)
+        if let url = request.url,
+			let host = url.host,
+			let modified = URL(string: url.absoluteString.replacingOccurrences(of: host, with: "broken-host.xyz")) {
+                return URLRequest(url: modified)
         }
         return request
     }
 
-    static func quoteFromNetworkResult(result: Result<(NSData?, NSURLResponse?), NSError>) -> Result<FXQuote, FXError> {
-        return Provider.quoteFromNetworkResult(result)
+    static func quoteFromNetworkResult(result: Result<(Data?, URLResponse?), NSError>) -> Result<FXQuote, FXError> {
+		return Provider.quoteFromNetworkResult(result: result)
     }
 }
 
-class FakeLocalFX<B: MoneyType, C: MoneyType where
-    B.Coder: NSCoding,
-    B.Coder.ValueType == B,
-    B.DecimalStorageType == BankersDecimal.DecimalStorageType,
-    C.Coder: NSCoding,
-    C.Coder.ValueType == C,
-    C.DecimalStorageType == BankersDecimal.DecimalStorageType>: FXLocalProviderType {
-
-    typealias BaseMoney = B
+class FakeLocalFX<B: ISOMoneyProtocol, C: ISOMoneyProtocol>: FXLocalProviderType {
+	
+	typealias BaseMoney = B
     typealias CounterMoney = C
 
     static func name() -> String {
@@ -119,64 +113,31 @@ class FakeLocalFX<B: MoneyType, C: MoneyType where
 class FXErrorTests: XCTestCase {
 
     func test__fx_error__equality() {
-        XCTAssertNotEqual(FXError.NoData, FXError.RateNotFound("whatever"))
+        XCTAssertNotEqual(FXError.noData, FXError.rateNotFound("whatever"))
     }
 }
 
 class FXProviderTests: XCTestCase {
 
     func dvrJSONFromCassette(name: String) -> JSON? {
-        guard let path = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "json"),
-            data = NSData(contentsOfFile: path) else {
-                return .None
-        }
-        let json = JSON(data: data)
-        let body = json[["interactions",0,"response","body"]]
-        return body
+		do {
+			guard let url = Bundle(for: FXProviderTests.self).url(forResource: name, withExtension: "json") else {
+				return nil
+			}
+			let json = try JSON(data: Data(contentsOf: url))
+			let body = json[["interactions",0,"response","body"]]
+			
+			return body
+			
+		} catch {
+			return nil
+		}
     }
 }
 
 class FXLocalProviderTests: XCTestCase {
 
     func test_fx() {
-        XCTAssertEqual(FakeLocalFX<Money, USD>.fx(100).counter, 110)
-    }
-}
-
-class FXQuoteTests: XCTestCase {
-
-    var quote: FXQuote!
-
-    func archiveEncodedQuote() -> NSData {
-        return NSKeyedArchiver.archivedDataWithRootObject(quote.encoded)
-    }
-
-    func unarchive(archive: NSData) -> FXQuote? {
-        return FXQuote.decode(NSKeyedUnarchiver.unarchiveObjectWithData(archive))
-    }
-
-    func test__quote_encodes() {
-        quote = FXQuote(rate: 1.5409)
-        XCTAssertEqual(unarchive(archiveEncodedQuote())!.rate, quote.rate)
-    }
-}
-
-class FXTransactionTests: XCTestCase {
-
-    typealias Transaction = FXTransaction<USD, GBP>
-
-    var transaction: Transaction!
-
-    func archiveEncodedTransaction() -> NSData {
-        return NSKeyedArchiver.archivedDataWithRootObject(transaction.encoded)
-    }
-
-    func unarchive(archive: NSData) -> Transaction? {
-        return Transaction.decode(NSKeyedUnarchiver.unarchiveObjectWithData(archive))
-    }
-
-    func test__transaction_encodes() {
-        transaction = Transaction(base: 100, quote: FXQuote(rate: 1.2))
-        XCTAssertEqual(unarchive(archiveEncodedTransaction())!.base, 100)
+        XCTAssertEqual(FakeLocalFX<GBP, USD>.fx(100).counter, 110)
     }
 }

@@ -25,11 +25,9 @@
 // SOFTWARE.
 
 import Foundation
-import ValueCoding
 import Result
 import SwiftyJSON
 import Money
-
 
 // MARK: - Open Exchange Rates FX Service Provider
 
@@ -65,7 +63,7 @@ Now, create subclasses of `_OpenExchangeRates` or
 e.g. If you have a forever free app_id:
 
 
-class OpenExchangeRates<Counter: MoneyType>: _ForeverFreeOpenExchangeRates<Counter, MyOpenExchangeRatesAppID> { }
+class OpenExchangeRates<Counter: ISOMoneyProtocol>: _ForeverFreeOpenExchangeRates<Counter, MyOpenExchangeRatesAppID> { }
 
 usage would then be like this:
 
@@ -79,7 +77,7 @@ If you have paid for access to OpenExchangeRates then instead
 create the following subclass:
 
 
-class OpenExchangeRates<Base: MoneyType, Counter: MoneyType>: _OpenExchangeRates<Base, Counter, MyOpenExchangeRatesAppID> { }
+class OpenExchangeRates<Base: ISOMoneyProtocol, Counter: ISOMoneyProtocol>: _OpenExchangeRates<Base, Counter, MyOpenExchangeRatesAppID> { }
 
 - see: [https://openexchangerates.org](https://openexchangerates.org)
 - see: [CocoaPod Keys](https://github.com/orta/cocoapods-keys)
@@ -95,49 +93,57 @@ public protocol OpenExchangeRatesAppID {
 
  - see: `OpenExchangeRatesAppID`
  */
-public class _OpenExchangeRates<Base: MoneyType, Counter: MoneyType, ID: OpenExchangeRatesAppID>: FXRemoteProvider<Base, Counter>, FXRemoteProviderType {
+open class _OpenExchangeRates<Base: ISOMoneyProtocol, Counter: ISOMoneyProtocol, ID: OpenExchangeRatesAppID>: FXRemoteProvider<Base, Counter>, FXRemoteProviderType {
+
+	public typealias BaseMoney = Base
+	public typealias CounterMoney = Counter
 
     public static func name() -> String {
-        return "OpenExchangeRates.org \(Base.Currency.code)\(Counter.Currency.code)"
+        return "OpenExchangeRates.org \(BaseMoney.ISOCurrency.shared.code)\(CounterMoney.ISOCurrency.shared.code)"
     }
 
-    public static func request() -> NSURLRequest {
-        var url = NSURL(string: "https://openexchangerates.org/api/latest.json?app_id=\(ID.app_id)")!
+    public static func request() -> URLRequest {
+        var url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=\(ID.app_id)")!
 
-        switch BaseMoney.Currency.code {
-        case Currency.USD.code:
+        switch BaseMoney.ISOCurrency.shared.code {
+        case USD.ISOCurrency.shared.code:
             break
         default:
-            url = url.URLByAppendingPathComponent("&base=\(BaseMoney.Currency.code)")
+			url = url.appendingPathComponent("&base=\(BaseMoney.ISOCurrency.shared.code)")
         }
 
-        return NSURLRequest(URL: url)
+		return URLRequest(url: url)
     }
 
-    public static func quoteFromNetworkResult(result: Result<(NSData?, NSURLResponse?), NSError>) -> Result<FXQuote, FXError> {
+	public static func quoteFromNetworkResult(result: Result<(Data?, URLResponse?), NSError>) -> Result<FXQuote, FXError> {
         return result.analysis(
 
-            ifSuccess: { data, response in
+            ifSuccess: { data, _ in
 
                 guard let data = data else {
-                    return Result(error: .NoData)
+                    return Result(error: .noData)
                 }
 
-                let json = JSON(data: data)
+				do {
+					let json = try JSON(data: data)
 
-                if json.isEmpty {
-                    return Result(error: .InvalidData(data))
-                }
+					if json.isEmpty {
+						return Result(error: .invalidData(data))
+					}
 
-                guard let rate = json[["rates", CounterMoney.Currency.code]].double else {
-                    return Result(error: .RateNotFound(name()))
-                }
+					guard let rate = json[["rates", CounterMoney.ISOCurrency.shared.code]].double else {
+						return Result(error: .rateNotFound(name()))
+					}
 
-                return Result(value: FXQuote(rate: BankersDecimal(floatLiteral: rate)))
+					return Result(value: FXQuote(rate: Decimal(rate)))
+
+				} catch {
+					return Result(error: .invalidData(data))
+				}
             },
 
             ifFailure: { error in
-                return Result(error: .NetworkError(error))
+                return Result(error: .networkError(error))
             })
     }
 }
@@ -148,4 +154,4 @@ public class _OpenExchangeRates<Base: MoneyType, Counter: MoneyType, ID: OpenExc
 
  - see: `OpenExchangeRatesAppID`
  */
-public class _ForeverFreeOpenExchangeRates<Counter: MoneyType, ID: OpenExchangeRatesAppID>: _OpenExchangeRates<USD, Counter, ID> { }
+open class _ForeverFreeOpenExchangeRates<Counter: ISOMoneyProtocol, ID: OpenExchangeRatesAppID>: _OpenExchangeRates<USD, Counter, ID> { }
