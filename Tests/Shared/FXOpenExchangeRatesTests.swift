@@ -17,9 +17,9 @@ struct MyOpenExchangeRatesAppID: OpenExchangeRatesAppID {
     static let app_id = "this_is_not_the_app_id_youre_looking_for"
 }
 
-class OpenExchangeRates<Base: MoneyType, Counter: MoneyType>: _OpenExchangeRates<Base, Counter, MyOpenExchangeRatesAppID> { }
+class OpenExchangeRates<Base: ISOMoneyProtocol, Counter: ISOMoneyProtocol>: _OpenExchangeRates<Base, Counter, MyOpenExchangeRatesAppID> { }
 
-class FreeOpenExchangeRates<Counter: MoneyType>: _ForeverFreeOpenExchangeRates<Counter, MyOpenExchangeRatesAppID> { }
+class FreeOpenExchangeRates<Counter: ISOMoneyProtocol>: _ForeverFreeOpenExchangeRates<Counter, MyOpenExchangeRatesAppID> { }
 
 class FXPaidOpenExchangeRatesTests: FXProviderTests {
     typealias Provider = OpenExchangeRates<GBP,JPY>
@@ -29,16 +29,16 @@ class FXPaidOpenExchangeRatesTests: FXProviderTests {
     }
 
     func test__base_currency() {
-        XCTAssertEqual(Provider.BaseMoney.Currency.code, Currency.GBP.code)
+		XCTAssertEqual(Provider.BaseMoney.ISOCurrency.shared.code, GBP.ISOCurrency.shared.code)
     }
 
     func test__request__url_does_contain_base() {
-        guard let url = Provider.request().URL else {
+        guard let url = Provider.request().url else {
             XCTFail("Request did not return a URL")
             return
         }
 
-        XCTAssertTrue(url.absoluteString.containsString("&base=GBP"))
+        XCTAssertTrue(url.absoluteString.contains("&base=GBP"))
     }
 }
 
@@ -53,55 +53,56 @@ class FXFreeOpenExchangeRatesTests: FXProviderTests {
     }
 
     func test__session() {
-        XCTAssertEqual(Provider.session(), NSURLSession.sharedSession())
+        XCTAssertEqual(Provider.session(), URLSession.shared)
     }
 
     func test__base_currency() {
-        XCTAssertEqual(Provider.BaseMoney.Currency.code, Currency.USD.code)
+		XCTAssertEqual(Provider.BaseMoney.ISOCurrency.shared.code, USD.ISOCurrency.shared.code)
     }
 
     func test__request__url_does_not_contain_base() {
-        guard let url = Provider.request().URL else {
+        guard let url = Provider.request().url else {
             XCTFail("Request did not return a URL")
             return
         }
 
-        XCTAssertFalse(url.absoluteString.containsString("&base="))
+        XCTAssertFalse(url.absoluteString.contains("&base="))
     }
 
     func test__quote_adaptor__with_network_error() {
-        let error = NSError(domain: NSURLErrorDomain, code: NSURLError.BadServerResponse.rawValue, userInfo: nil)
-        let network: Result<(NSData?, NSURLResponse?), NSError> = Result(error: error)
-        let quote = Provider.quoteFromNetworkResult(network)
-        XCTAssertEqual(quote.error!, FXError.NetworkError(error))
+        let error = NSError(domain: SwiftyJSONError.errorDomain, code: URLError.badServerResponse.rawValue, userInfo: nil)
+        let network: Result<(Data?, URLResponse?), NSError> = Result(error: error)
+		let quote = Provider.quoteFromNetworkResult(result: network) 
+        XCTAssertEqual(quote.error!, FXError.networkError(error))
     }
 
     func test__quote_adaptor__with_no_data() {
-        let network: Result<(NSData?, NSURLResponse?), NSError> = Result(value: (.None, .None))
-        let quote = Provider.quoteFromNetworkResult(network)
-        XCTAssertEqual(quote.error!, FXError.NoData)
+        let network: Result<(Data?, URLResponse?), NSError> = Result(value: (.none, .none))
+		let quote = Provider.quoteFromNetworkResult(result: network)
+        XCTAssertEqual(quote.error!, FXError.noData)
     }
 
     func test__quote_adaptor__with_garbage_data() {
         let data = createGarbageData()
-        let network: Result<(NSData?, NSURLResponse?), NSError> = Result(value: (data, .None))
-        let quote = Provider.quoteFromNetworkResult(network)
-        XCTAssertEqual(quote.error!, FXError.InvalidData(data))
+        let network: Result<(Data?, URLResponse?), NSError> = Result(value: (data, .none))
+		let quote = Provider.quoteFromNetworkResult(result: network)
+		print(quote.error)
+        XCTAssertEqual(quote.error!, FXError.invalidData(data))
     }
 
     func test__quote_adaptor__with_missing_rate() {
-        var json = dvrJSONFromCassette(Provider.name())!
+		var json = dvrJSONFromCassette(name: Provider.name())!
         var rates: Dictionary<String, JSON> = json["rates"].dictionary!
-        rates.removeValueForKey("EUR")
+		rates.removeValue(forKey: "EUR")
         json["rates"] = JSON(rates)
         let data = try! json.rawData()
-        let network: Result<(NSData?, NSURLResponse?), NSError> = Result(value: (data, .None))
-        let quote = Provider.quoteFromNetworkResult(network)
-        XCTAssertEqual(quote.error!, FXError.RateNotFound(Provider.name()))
+        let network: Result<(Data?, URLResponse?), NSError> = Result(value: (data, .none))
+		let quote = Provider.quoteFromNetworkResult(result: network)
+        XCTAssertEqual(quote.error!, FXError.rateNotFound(Provider.name()))
     }
 
     func test__faulty_provider() {
-        let expectation = expectationWithDescription("Test: \(#function)")
+		let expect = expectation(description: "Test: \(#function)")
 
         FaultyProvider.fx(100) { result in
             guard let error = result.error else {
@@ -109,30 +110,30 @@ class FXFreeOpenExchangeRatesTests: FXProviderTests {
                 return
             }
             switch error {
-            case .NetworkError(_):
+            case .networkError(_):
                 break // This is the success path.
             default:
                 XCTFail("Returned \(error), should be a .NetworkError")
             }
-            expectation.fulfill()
+            expect.fulfill()
         }
-
-        waitForExpectationsWithTimeout(1, handler: nil)
+		
+		waitForExpectations(timeout: 1, handler: nil)
     }
 
     func test__fx() {
-        let expectation = expectationWithDescription("Test: \(#function)")
-
+		let expect = expectation(description: "Test: \(#function)")
+		
         TestableProvider.fx(100) { result in
-            if let usd = result.value {
-                XCTAssertEqual(usd, 92.09)
+            if let eur = result.value {
+				XCTAssertEqualWithAccuracy((eur.decimal as NSDecimalNumber).doubleValue, 92.09, accuracy: 0.01)
             }
             else {
                 XCTFail("Received error: \(result.error!).")
             }
-            expectation.fulfill()
+            expect.fulfill()
         }
 
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 }

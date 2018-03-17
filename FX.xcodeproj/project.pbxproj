@@ -7,38 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65BE50C41C6413420025D7E8 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */; };
 		65BE50C71C6413620025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C51C6413620025D7E8 /* Result.framework */; };
 		65BE50C81C6413620025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C61C6413620025D7E8 /* SwiftyJSON.framework */; };
 		65BE50CB1C6413780025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50C91C6413780025D7E8 /* Result.framework */; };
 		65BE50CC1C6413780025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CA1C6413780025D7E8 /* SwiftyJSON.framework */; };
 		65BE50CF1C6413840025D7E8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CD1C6413840025D7E8 /* Result.framework */; };
 		65BE50D01C6413840025D7E8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50CE1C6413840025D7E8 /* SwiftyJSON.framework */; };
-		65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */; };
 		65BE50D41C6413A20025D7E8 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE50D31C6413A20025D7E8 /* DVR.framework */; };
 		65C6D34F1C640A6A0090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34D1C640A6A0090F6B3 /* Money.framework */; };
-		65C6D3501C640A6A0090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D34E1C640A6A0090F6B3 /* ValueCoding.framework */; };
 		65C6D3531C640A870090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3511C640A870090F6B3 /* Money.framework */; };
-		65C6D3541C640A870090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3521C640A870090F6B3 /* ValueCoding.framework */; };
 		65C6D3571C640A940090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3551C640A940090F6B3 /* Money.framework */; };
-		65C6D3581C640A940090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3561C640A940090F6B3 /* ValueCoding.framework */; };
 		65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3591C640AA00090F6B3 /* Money.framework */; };
-		65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D35A1C640AA00090F6B3 /* ValueCoding.framework */; };
 		65C6D3731C640B400090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
 		65C6D3741C640B400090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
 		65C6D3751C640B400090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
 		65C6D3761C640B400090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
-		65C6D3771C640B400090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
 		65C6D3781C640B420090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
 		65C6D3791C640B420090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
 		65C6D37A1C640B420090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
 		65C6D37B1C640B420090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
-		65C6D37C1C640B420090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
 		65C6D37D1C640B430090F6B3 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3691C640B370090F6B3 /* Troll.png */; };
 		65C6D37E1C640B430090F6B3 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3601C640B370090F6B3 /* BitcoinTests.swift */; };
 		65C6D37F1C640B430090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */; };
 		65C6D3801C640B430090F6B3 /* FXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3671C640B370090F6B3 /* FXTests.swift */; };
-		65C6D3811C640B430090F6B3 /* FXYahooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3681C640B370090F6B3 /* FXYahooTests.swift */; };
 		65C6D3821C640B490090F6B3 /* CEX.IO BTCUSD.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3621C640B370090F6B3 /* CEX.IO BTCUSD.json */; };
 		65C6D3831C640B490090F6B3 /* CEX.IO USDBTC.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3631C640B370090F6B3 /* CEX.IO USDBTC.json */; };
 		65C6D3841C640B490090F6B3 /* OpenExchangeRates.org USDEUR.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C6D3641C640B370090F6B3 /* OpenExchangeRates.org USDEUR.json */; };
@@ -54,23 +45,18 @@
 		65C6D3A71C640BA40090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
 		65C6D3A81C640BA40090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
 		65C6D3A91C640BA40090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
-		65C6D3AA1C640BA40090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
 		65C6D3AB1C640BAE0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
 		65C6D3AC1C640BAE0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
 		65C6D3AD1C640BAE0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
-		65C6D3AE1C640BAE0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
 		65C6D3AF1C640BAF0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
 		65C6D3B01C640BAF0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
 		65C6D3B11C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
-		65C6D3B21C640BAF0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
 		65C6D3B31C640BAF0090F6B3 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */; };
 		65C6D3B41C640BAF0090F6B3 /* FX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A41C640BA40090F6B3 /* FX.swift */; };
 		65C6D3B51C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */; };
-		65C6D3B61C640BAF0090F6B3 /* Yahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6D3A61C640BA40090F6B3 /* Yahoo.swift */; };
 		65C6D3BB1C640D910090F6B3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3B91C640D910090F6B3 /* Result.framework */; };
 		65C6D3BC1C640D910090F6B3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */; };
 		65C6D3BE1C640DA90090F6B3 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3BD1C640DA90090F6B3 /* DVR.framework */; };
-		65F1CB691C6627AA00C46CF6 /* ValueCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6D3561C640A940090F6B3 /* ValueCoding.framework */; };
 		65F6F8A41C62B84500155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8991C62B84500155987 /* MoneyFX.framework */; };
 		65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8C31C62B89D00155987 /* MoneyFX.framework */; };
 		65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6F8DF1C62B8DA00155987 /* MoneyFX.framework */; };
@@ -78,6 +64,10 @@
 		65F6F8FF1C62B9F600155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F6F9001C62B9F800155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F6F9011C62B9F900155987 /* FX.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F6F8F81C62B99300155987 /* FX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79876A1D205D7092009EFC3E /* ISOMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BA608D205D560800714084 /* ISOMoney.swift */; };
+		79876A1E205D7094009EFC3E /* ISOMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BA608D205D560800714084 /* ISOMoney.swift */; };
+		79876A1F205D7095009EFC3E /* ISOMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BA608D205D560800714084 /* ISOMoney.swift */; };
+		79BA608E205D560800714084 /* ISOMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BA608D205D560800714084 /* ISOMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,12 +118,10 @@
 		65C6D3651C640B370090F6B3 /* Yahoo GBPUSD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Yahoo GBPUSD.json"; sourceTree = "<group>"; };
 		65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXOpenExchangeRatesTests.swift; sourceTree = "<group>"; };
 		65C6D3671C640B370090F6B3 /* FXTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXTests.swift; sourceTree = "<group>"; };
-		65C6D3681C640B370090F6B3 /* FXYahooTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXYahooTests.swift; sourceTree = "<group>"; };
 		65C6D3691C640B370090F6B3 /* Troll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Troll.png; sourceTree = "<group>"; };
 		65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
 		65C6D3A41C640BA40090F6B3 /* FX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FX.swift; sourceTree = "<group>"; };
 		65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenExchangeRates.swift; sourceTree = "<group>"; };
-		65C6D3A61C640BA40090F6B3 /* Yahoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yahoo.swift; sourceTree = "<group>"; };
 		65C6D3B91C640D910090F6B3 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		65C6D3BA1C640D910090F6B3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		65C6D3BD1C640DA90090F6B3 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVR.framework; path = Carthage/Build/iOS/DVR.framework; sourceTree = "<group>"; };
@@ -147,6 +135,7 @@
 		65F6F8F81C62B99300155987 /* FX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FX.h; sourceTree = "<group>"; };
 		65F6F8F91C62B99300155987 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65F6F8FB1C62B99300155987 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79BA608D205D560800714084 /* ISOMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +146,6 @@
 				65C6D3BB1C640D910090F6B3 /* Result.framework in Frameworks */,
 				65C6D3BC1C640D910090F6B3 /* SwiftyJSON.framework in Frameworks */,
 				65C6D34F1C640A6A0090F6B3 /* Money.framework in Frameworks */,
-				65C6D3501C640A6A0090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +153,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BE50C41C6413420025D7E8 /* ValueCoding.framework in Frameworks */,
 				65F6F8A41C62B84500155987 /* MoneyFX.framework in Frameworks */,
 				65C6D3BE1C640DA90090F6B3 /* DVR.framework in Frameworks */,
 			);
@@ -178,7 +165,6 @@
 				65BE50C71C6413620025D7E8 /* Result.framework in Frameworks */,
 				65BE50C81C6413620025D7E8 /* SwiftyJSON.framework in Frameworks */,
 				65C6D3531C640A870090F6B3 /* Money.framework in Frameworks */,
-				65C6D3541C640A870090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +175,6 @@
 				65BE50CB1C6413780025D7E8 /* Result.framework in Frameworks */,
 				65BE50CC1C6413780025D7E8 /* SwiftyJSON.framework in Frameworks */,
 				65C6D3571C640A940090F6B3 /* Money.framework in Frameworks */,
-				65C6D3581C640A940090F6B3 /* ValueCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F1CB691C6627AA00C46CF6 /* ValueCoding.framework in Frameworks */,
 				65F6F8CD1C62B89D00155987 /* MoneyFX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C6D35C1C640AA00090F6B3 /* ValueCoding.framework in Frameworks */,
 				65C6D35B1C640AA00090F6B3 /* Money.framework in Frameworks */,
 				65BE50CF1C6413840025D7E8 /* Result.framework in Frameworks */,
 				65BE50D01C6413840025D7E8 /* SwiftyJSON.framework in Frameworks */,
@@ -218,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65F6F8E91C62B8DA00155987 /* MoneyFX.framework in Frameworks */,
-				65BE50D21C6413A20025D7E8 /* ValueCoding.framework in Frameworks */,
 				65BE50D41C6413A20025D7E8 /* DVR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +240,6 @@
 				65C6D3601C640B370090F6B3 /* BitcoinTests.swift */,
 				65C6D3661C640B370090F6B3 /* FXOpenExchangeRatesTests.swift */,
 				65C6D3671C640B370090F6B3 /* FXTests.swift */,
-				65C6D3681C640B370090F6B3 /* FXYahooTests.swift */,
 				65C6D3611C640B370090F6B3 /* DVR Cassettes */,
 			);
 			path = Shared;
@@ -281,7 +262,7 @@
 				65C6D3A31C640BA40090F6B3 /* Bitcoin.swift */,
 				65C6D3A41C640BA40090F6B3 /* FX.swift */,
 				65C6D3A51C640BA40090F6B3 /* OpenExchangeRates.swift */,
-				65C6D3A61C640BA40090F6B3 /* Yahoo.swift */,
+				79BA608D205D560800714084 /* ISOMoney.swift */,
 			);
 			name = Shared;
 			path = Sources/Shared;
@@ -699,7 +680,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ValueCoding.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Money.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
@@ -719,7 +699,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/ValueCoding.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Money.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
@@ -739,7 +718,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/ValueCoding.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Money.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Result.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
@@ -761,8 +739,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C6D3A71C640BA40090F6B3 /* Bitcoin.swift in Sources */,
+				79BA608E205D560800714084 /* ISOMoney.swift in Sources */,
 				65C6D3A81C640BA40090F6B3 /* FX.swift in Sources */,
-				65C6D3AA1C640BA40090F6B3 /* Yahoo.swift in Sources */,
 				65C6D3A91C640BA40090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,7 +751,6 @@
 			files = (
 				65C6D3751C640B400090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
 				65C6D3761C640B400090F6B3 /* FXTests.swift in Sources */,
-				65C6D3771C640B400090F6B3 /* FXYahooTests.swift in Sources */,
 				65C6D3741C640B400090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,8 +760,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C6D3AB1C640BAE0090F6B3 /* Bitcoin.swift in Sources */,
+				79876A1D205D7092009EFC3E /* ISOMoney.swift in Sources */,
 				65C6D3AC1C640BAE0090F6B3 /* FX.swift in Sources */,
-				65C6D3AE1C640BAE0090F6B3 /* Yahoo.swift in Sources */,
 				65C6D3AD1C640BAE0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,8 +771,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C6D3AF1C640BAF0090F6B3 /* Bitcoin.swift in Sources */,
+				79876A1E205D7094009EFC3E /* ISOMoney.swift in Sources */,
 				65C6D3B01C640BAF0090F6B3 /* FX.swift in Sources */,
-				65C6D3B21C640BAF0090F6B3 /* Yahoo.swift in Sources */,
 				65C6D3B11C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,7 +783,6 @@
 			files = (
 				65C6D37A1C640B420090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
 				65C6D37B1C640B420090F6B3 /* FXTests.swift in Sources */,
-				65C6D37C1C640B420090F6B3 /* FXYahooTests.swift in Sources */,
 				65C6D3791C640B420090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,8 +792,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C6D3B31C640BAF0090F6B3 /* Bitcoin.swift in Sources */,
+				79876A1F205D7095009EFC3E /* ISOMoney.swift in Sources */,
 				65C6D3B41C640BAF0090F6B3 /* FX.swift in Sources */,
-				65C6D3B61C640BAF0090F6B3 /* Yahoo.swift in Sources */,
 				65C6D3B51C640BAF0090F6B3 /* OpenExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,7 +804,6 @@
 			files = (
 				65C6D37F1C640B430090F6B3 /* FXOpenExchangeRatesTests.swift in Sources */,
 				65C6D3801C640B430090F6B3 /* FXTests.swift in Sources */,
-				65C6D3811C640B430090F6B3 /* FXYahooTests.swift in Sources */,
 				65C6D37E1C640B430090F6B3 /* BitcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,13 +833,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		65F6F8931C62B77800155987 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1244,7 +1225,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1295,7 +1276,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1349,7 +1330,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Debug;
 		};
@@ -1392,7 +1373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.danthorpe.Money.FX-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1447,7 +1428,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1502,7 +1482,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1554,7 +1533,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.danthorpe.Money.FX-OSXTests";
@@ -1601,7 +1580,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.danthorpe.Money.FX-OSXTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
